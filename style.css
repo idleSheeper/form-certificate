@@ -1,0 +1,240 @@
+*{
+ margin: 0;   
+}
+
+body{
+    background: #202020;
+}
+
+/******************************/
+/*front and back certificate*/
+/******************************/
+
+#front, #back {
+    width: 900px;
+    height: calc(0.6 * 1050px);
+    background: #282828;
+    margin: 0 auto;
+    padding: 70px;
+}
+
+#front-form, #back-form {
+    width: 320px;
+    background: #808080;
+    height: 100%;
+    display: inline-block;
+    float: left;
+    border-radius: 25px;
+    box-shadow: 0 0 4px 3px black;
+    padding: 0 20px;
+}
+
+#front-certificate, #back-certificate {
+    width: 450px;
+    height: 630px;
+    display: inline-block;
+    float: right;
+    position: relative;
+}
+
+#front-certificate {
+    background: url(BlueFront.svg);
+    background-size: 100% 100%;
+}
+
+#back-certificate {
+    background: url(BlueBack.svg);
+    background-size: 100% 100%;
+}
+
+.showBig {
+    position: absolute !important;
+    left: 0%;
+    top: 50%;
+    margin-left: 450px;
+    transform: scale(2);
+    display: block !important;
+}
+
+/*****************************/
+/***** Front certyficate *****/
+
+#front-certificate h2 {
+    margin-top: 5%;
+    margin-bottom: 8%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+img{
+    margin: 15% auto 0;
+    display: block;
+}
+
+.row, .row-success {
+    margin: 10px 19%;
+    width: 62%;
+    font-size: 12px;
+}
+
+.row span {
+    z-index: 100;
+}
+
+#front-certificate p, #headmaster {
+    margin: 0 auto;
+    text-align: center;
+    width: 60%;
+    z-index: 100;
+}
+
+#headmaster::after {
+    content: '(' attr(data-text) ')' !important;
+    display: block !important;
+    transform: translateY(12px);
+    color: black !important;
+    font-size: 7px !important;
+}
+
+#front-certificate p::after {
+    content: '(' attr(data-text) ')';
+    border-top: 1px dotted black;
+    display: block;
+    color: black;
+    font-size: 7px;
+}
+
+#birth-data {
+    display: flex;
+    justify-content: space-between;
+}
+
+#birth-data p {
+    width: 30%;
+    margin: 0;
+}
+
+#year, #nr-school, #place-school, #data-created, #signature {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+}
+
+#year p, #nr-school p, #place-school p, #next-year p, #data-created p, #signature p {
+    width: 9%;
+    border-bottom: 1px dotted black;
+    transform: translateY(-2px);
+    margin: 0;
+}
+
+#year p::after, #nr-school p::after, #place-school p::after, #next-year p::after, #data-created p::after, #signature p::after {
+    content: '';
+    border: 0px solid black;
+}
+
+#next-year {
+    display: flex;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.primus {
+    position: absolute;
+    left: 25%; 
+    width: 5%;
+    height: 100%;
+    background: -webkit-linear-gradient(left, red 1%, white 1%, white 50%, red 50%);
+    background: -o-linear-gradient(left, red 1%, white 10%, white 50%, red 50%);
+    background: linear-gradient(to right, red 1%, white 10%, white 50%, red 50%);
+}
+
+/*****************************/
+/***** Back certyficate *****/
+
+#back-certificate h2 {
+    margin-top: 18%;
+    margin-bottom: 1%;
+    text-align: center;
+    //text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.margin-zero {
+    margin: 4%  0 2% 0 !important;
+}
+
+#back-certificate .row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    margin-top: 0 ;
+    margin-bottom: 2px;
+}
+
+.left {
+    text-align: left;
+    width: 58%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.left::after {
+    content: '..................................................................';
+}
+
+.right {
+    width: 35%;
+    text-align: center;
+    border-bottom: 1px dotted black;
+}
+
+.description {
+    margin: 10px 19%;
+    width: 62%;
+    font-size: 10px;
+}
+
+.description span {
+            box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    border-bottom: 1px dotted black;
+}
+
+.invisibility {
+     color: transparent;   
+}
+
+/*********************************************/
+/************ Form for front *****************/
+/*********************************************/
+	
+#front-form form { 
+    display: table; 
+    width: 100%;
+    padding: 0;
+}
+
+#front-form p, #back-form p { 
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+#front-form input[type=radio]{
+    display: inline-block;
+}
+
+#front-form label { 
+        display: table-cell; 
+        margin: 0;
+}
+
+fieldset {
+    margin: 20px 0;
+}
+
+.row-success{
+     overflow: hidden;
+}

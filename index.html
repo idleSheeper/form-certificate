@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+    <div id="front">
+        <div id="front-form">
+            <fieldset>
+            <legend align="center">Dane szkoły</legend>
+                <form id='form-1' action="">
+                <p>     
+                    <label for="school">Poziom:
+                        <select id="school" name='school'>
+                            <option value="Szkoły Podstawowej" data-gilosz="Blue">Szkoła Podstawowa</option>
+                            <option value="Gimnazjum" data-gilosz="Orange">Gimnazjum</option>
+                            <option value="Liceum Ogólnokształcącego" data-gilosz="Pink">Liceum</option>
+                        </select>
+                    </label>
+                    <label for="school-number"> Nr: <input type="text" name="school-number" maxlength="3" size="3"></label>
+                 </p>   
+
+                <p><label for="patron-name"> Im. </label><input type="text" name="patron-name"></p>
+                <p><label for="city"> w</label> <input type="text" name="city"></p>
+                <p><label for="province"> województwo: </label><input type="text" name="province"></p>
+                </form>
+            </fieldset>
+            
+            <fieldset>
+                <legend align="center">Dane ucznia</legend>
+                   <form id='form-2' action="">
+                        <p><label for="student-name"> Imię (imiona) </label><input type="text" name="student-name"></p>
+                        <p><label for="student-lastname"> Nazwisko</label> <input type="text" name="student-lastname"></p>
+                        <p><label for="student-class"> Klasa</label> <input type="text" name="student-class"></p>
+                        <p><label for="student-birthday"> Data urodzenia: </label><input type="date" name="student-birthday" placeholder='rrrr-mm-dd'></p>
+                        <p><label for="student-birth-place"> Miejsce urodzenia: </label><input type="text" name="student-birth-place"></p>
+                        <p><label for="student-PESEL"> PESEL: </label><input type="text" name="student-PESEL" maxlength="11"></p>
+                        <p>
+                            <label for="">Płeć: </label>
+                            <label><input type="radio" name="sex" value="man"> Mężczyzna 
+                            <input type="radio" name="sex" value="female" checked> Kobieta</label>
+                        </p>
+                    </form>
+            </fieldset>
+            
+            <fieldset>
+                <legend align='center'>Pozostałe dane</legend>
+                <form id='form-3' action="">
+                    <p><label for="school-year"> Rok szkolny: </label><label><input type="text" name="school-year-1" maxlength='4' size='4'> / <input type="text" name="school-year-2" maxlength='4' size='4'></label></p>
+                    <p><label for="where-publish"> Wydano w:</label><input type="text" name="where-publish"></p>
+                    <p><label for="when-publish"> Dnia: </label><input type="date" name="when-publish" placeholder='rrrr-mm-dd'></p>
+                    <p><label for="number-certificate"> Nr świadectwa: </label><input type="text" name="number-certificate"></p>
+                    <p>
+                        <label><input type="checkbox" id="not-passed"> Nie otrzymał promocji</label>
+                        <label><input type="checkbox" id="primus"> Wzorowy uczeń</label>
+                    </p>
+                </form>
+            </fieldset>
+        </div><!-- end part with form for front-certificate-->
+        
+        <div id="front-certificate">
+            <div class="primus" style='display:none'></div>
+            <div class='certificate-text'>
+                <img src="orzel.svg" width="10%" height="10%" alt="">
+                <h2><span>Świadectwo szkolne</span></h2>
+                <div class="row"><p id='name' data-text="imię (imiona) i nazwisko" >Janina Kowalska</p></div>
+                <div class="row" id='birth-data'><p id='student-birthday' data-text="data urodzenia">01.01.1990</p><p id='student-birth-place'data-text="miejsce urodzenia">Warszawa</p><p id='student-PESEL' data-text="numer PESEL">909090876</p></div>
+                <div class="row" id='year'><span>uczęszczał</span><p>a</p>w roku szkolnym <p id='school-year-1'>2015</p>/<p id='school-year-2'>2016</p> do klasy <p id='student-class'>IIIA</p></div>
+                <div class="row"><p id="school-name" data-text="nazwa szkoły" style="width: 100%">Szkoły podstawowej </p></div>
+                <div class="row" id="nr-school">nr <p id='school-number' style='width:15%'></p> im. <p id='patron-name' style="width:70%"></p></div>
+                <div class="row" id="place-school">w <p id='city' style='width:45%'></p> woj. <p id='province' style="width:43%"></p></div>
+                <div class="row" id="next-year">i <p style='width: 5%; margin: 0 5px'>-</p> otrzymał<p style='width: 5%; margin: 0 5px 0 0'>a</p>promocj <p style='width:5%; margin: 0 5px 0 0'>ę</p> do następnej klasy.</div>
+                <div class="row" id="data-created" style="margin-top: 50px "><p id='where-publish' data-text='miejscowość' style="width: 60%">Warszawa</p>, dnia <p id='when-publish' style="width: 30%">2016</p></div>
+                <div class="row" id='signature' style="margin-top: 60px">Nr <p id='number-certificate' style='width:30%'></p> <p id='headmaster' style='width:45%' data-text='podpis dyrektora'></p></div>
+            </div>
+        </div>
+    </div><!-- end part with front-certificate-->
+    
+    <div id="back">
+        <div id="back-form">
+            <fieldset>
+            <legend align="center">Wyniki klasyfikacji rocznej</legend>
+                <form id='form-4' action="">
+                <p>     
+                    <label for="behavior">Zachowanie: </label>
+                        <select id="behavior" name='behavior'>
+                            <option value="wzorowe" >wzorowe</option>
+                            <option value="bardzo dobre" >bardzo dobre</option>
+                            <option value="dobre" selected>dobre</option>
+                            <option value="poprawne" >poprawne</option>
+                            <option value="nieodpowiednie" >nieodpowiednie</option>
+                            <option value="naganne" >naganne</option>
+                        </select>
+                 </p>   
+                <p>     
+                    <label for="religion">Religia/etyka: </label>
+                        <select id="religion" name='religion'>
+                            <option value="celujący" >celujący</option>
+                            <option value="bardzo dobry" >bardzo dobry</option>
+                            <option value="dobry" selected>dobry</option>
+                            <option value="poprawne" >dostateczny</option>
+                            <option value="dopuszczający" >dopuszczający</option>
+                            <option value="niedostateczny" >niedostateczny</option>
+                            <option value="nie uczestniczył" >nie uczestniczył</option>
+                        </select>
+                 </p>   
+                </form>
+            </fieldset>
+            
+            <fieldset>
+                <legend align='center'>Obowiązkowe zajęcia edukacyjne</legend>
+                <form action="" id="form-5">
+                    <p>
+                        <input type="checkbox" data-number='0' checked><input type="text" name="subject-name-0" size="14" value='język polski'> 
+                        <label><input type="radio" name="mark-0" value="niedostateczny">1 <input type="radio" name="mark-0" value="dopuszczający" >2<input type="radio" name="mark-0" value="dostateczny" >3<input type="radio" name="mark-0" value="dobry" checked>4<input type="radio" name="mark-0" value="bardzo dobry" >5<input type="radio" name="mark-0" value="calujący" >6</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" data-number='1' checked><input type="text" name="subject-name-1" size="14" value='język angielski'> 
+                        <label><input type="radio" name="mark-1" value="niedostateczny">1 <input type="radio" name="mark-1" value="dopuszczający" >2<input type="radio" name="mark-1" value="dostateczny" >3<input type="radio" name="mark-1" value="dobry" checked>4<input type="radio" name="mark-1" value="bardzo dobry" >5<input type="radio" name="mark-1" value="calujący" >6</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" data-number='2' checked><input type="text" name="subject-name-2" size="14" value='historia i społeczeństwo'> 
+                        <label><input type="radio" name="mark-2" value="niedostateczny">1 <input type="radio" name="mark-2" value="dopuszczający" >2<input type="radio" name="mark-2" value="dostateczny" >3<input type="radio" name="mark-2" value="dobry" checked>4<input type="radio" name="mark-2" value="bardzo dobry" >5<input type="radio" name="mark-2" value="calujący" >6</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" data-number='3' checked ><input type="text" name="subject-name-3" size="14" value='matematyka'> 
+                        <label><input type="radio" name="mark-3" value="niedostateczny">1 <input type="radio" name="mark-3" value="dopuszczający" >2<input type="radio" name="mark-3" value="dostateczny" >3<input type="radio" name="mark-3" value="dobry" checked>4<input type="radio" name="mark-3" value="bardzo dobry" >5<input type="radio" name="mark-3" value="calujący" >6</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" data-number='4' checked><input type="text" name="subject-name-4" size="14" value='wychowanie fizyczne'> 
+                        <label><input type="radio" name="mark-4" value="niedostateczny">1 <input type="radio" name="mark-4" value="dopuszczający" >2<input type="radio" name="mark-4" value="dostateczny" >3<input type="radio" name="mark-4" value="dobry" checked>4<input type="radio" name="mark-4" value="bardzo dobry" >5<input type="radio" name="mark-4" value="calujący" >6</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" data-number='5' checked ><input type="text" name="subject-name-5" size="14" value='fizyka'> 
+                        <label><input type="radio" name="mark-5" value="niedostateczny">1 <input type="radio" name="mark-5" value="dopuszczający" >2<input type="radio" name="mark-5" value="dostateczny" >3<input type="radio" name="mark-5" value="dobry" checked>4<input type="radio" name="mark-5" value="bardzo dobry" >5<input type="radio" name="mark-5" value="calujący" >6</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" data-number='6' checked ><input type="text" name="subject-name-6" size="14" value='chemia'> 
+                        <label><input type="radio" name="mark-6" value="niedostateczny">1 <input type="radio" name="mark-6" value="dopuszczający" >2<input type="radio" name="mark-6" value="dostateczny" >3<input type="radio" name="mark-6" value="dobry" checked>4<input type="radio" name="mark-6" value="bardzo dobry" >5<input type="radio" name="mark-6" value="calujący" >6</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" data-number='7' checked><input type="text" name="subject-name-7" size="14" value='geografia'> 
+                        <label><input type="radio" name="mark-7" value="niedostateczny">1 <input type="radio" name="mark-7" value="dopuszczający" >2<input type="radio" name="mark-7" value="dostateczny" >3<input type="radio" name="mark-7" value="dobry" checked>4<input type="radio" name="mark-7" value="bardzo dobry" >5<input type="radio" name="mark-7" value="calujący" >6</label>
+                    </p>                                                       
+                    <p>
+                        <input type="checkbox" data-number='8' checked ><input type="text" name="subject-name-8" size="14" value='biologia'> 
+                        <label><input type="radio" name="mark-8" value="niedostateczny">1 <input type="radio" name="mark-8" value="dopuszczający" >2<input type="radio" name="mark-8" value="dostateczny" >3<input type="radio" name="mark-8" value="dobry" checked>4<input type="radio" name="mark-8" value="bardzo dobry" >5<input type="radio" name="mark-8" value="calujący" >6</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" data-number='9'><input type="text" name="subject-name-9" size="14" value='' disabled> 
+                        <label><input type="radio" name="mark-9" value="niedostateczny" disabled>1 <input type="radio" name="mark-9" value="dopuszczający" disabled>2<input type="radio" name="mark-9" value="dostateczny" disabled>3<input type="radio" name="mark-9" value="dobry" checked disabled>4<input type="radio" name="mark-9" value="bardzo dobry" disabled >5<input type="radio" name="mark-9" value="calujący" disabled>6</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" data-number='10'><input type="text" name="subject-name-10" size="14" value='' disabled> 
+                        <label><input type="radio" name="mark-10" value="niedostateczny" disabled>1 <input type="radio" name="mark-10" value="dopuszczający" disabled>2<input type="radio" name="mark-10" value="dostateczny" disabled>3<input type="radio" name="mark-10" value="dobry" checked disabled>4<input type="radio" name="mark-10" value="bardzo dobry" disabled>5<input type="radio" name="mark-10" value="calujący" disabled>6</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" data-number='11'><input type="text" name="subject-name-11" size="14" value='' disabled> 
+                        <label><input type="radio" name="mark-11" value="niedostateczny" disabled>1 <input type="radio" name="mark-11" value="dopuszczający" disabled >2<input type="radio" name="mark-11" value="dostateczny" disabled>3<input type="radio" name="mark-11" value="dobry" checked disabled>4<input type="radio" name="mark-11" value="bardzo dobry" disabled>5<input type="radio" name="mark-11" value="calujący" disabled>6</label>
+                    </p>                                    
+                </form>
+            </fieldset>
+            
+            <fieldset>
+                <legend align="center">Szczególne osiągnięcia</legend>
+                <form action="" id="form-6">
+                    <textarea name='success-info'  rows="4" maxlength="180" style='width:285px'></textarea>
+                </form>
+            </fieldset>
+        </div><!-- end part with form for back-certificate-->
+        
+        <div id="back-certificate">
+            <h2>WYNIKI KLASYFIKACJI ROCZNEJ</h2>
+            <div class="row"><p class='left'>Zachowanie</p><p id='behavior-mark' class='right'>dobre</p></div>
+            <div class="row"><p class='left'>Religia/Etyka</p><p id='religion-mark' class='right'>dobry</p></div>
+            <h2 class='margin-zero'>Obowiązkowe zajęcia edukacyjne</h2>
+            <div id="marks">
+                <div class="row"><p id='subject-0' class='left'>język polski</p><p id='mark-0' class='right'>dobry</p></div>
+                <div class="row"><p id='subject-1' class='left'>język angielski</p><p id='mark-1' class='right'>dobry</p></div>
+                <div class="row"><p id='subject-2' class='left'>historia i społeczenstwo</p><p id='mark-2' class='right'>dobry</p></div>
+                <div class="row"><p id='subject-3' class='left'>matematyka</p><p id='mark-3' class='right'>dobry</p></div>
+                <div class="row"><p id='subject-4' class='left'>wychowanie fizyczne</p><p id='mark-4' class='right'>dobry</p></div>
+                <div class="row"><p id='subject-5' class='left'>fizyka</p><p id='mark-5' class='right'>dobry</p></div>
+                <div class="row"><p id='subject-6' class='left'>chemia</p><p id='mark-6' class='right'>dobry</p></div>
+                <div class="row"><p id='subject-7' class='left'>geografia</p><p id='mark-7' class='right'>dobry</p></div>
+                <div class="row"><p id='subject-8' class='left'>biologia</p><p id='mark-8' class='right'>dobry</p></div>
+                <div class="row"><p  class='left'></p><p id='mark-9' class='right'></p></div>
+                <div class="row"><p  class='left'></p><p id='mark-10' class='right'></p></div>
+                <div class="row"><p  class='left'></p><p id='mark-11' class='right'></p></div>
+            </div>
+            <h2 class='margin-zero'>Dodatkowe zajęcia edukacyjne</h2>
+            <div class="row"><p class='right invisibility' style="width: 100%"> -</p></div>
+            <div class="row"><p class='right invisibility' style="width: 100%"> -</p></div>
+            <div class="row"><p class='right invisibility' style="width: 100%"> -</p></div>
+            <h2 class='margin-zero'>Szczególne osiągnięcia</h2>
+            <div class="row-success" style='text-align: justify'><span id='success-info' style='border-bottom: 1px dotted'></span></div>
+            <div class="row" style='margin-top: 5%'><p style='text-align: right !important; width:58%; margin-rigth: 2%'>Wychowawca klasy</p><p class='right invisibility' style="width: 40%"> -</p></div>
+        </div>
+    </div> <!-- end part with back-certificate-->
+    
+    <script src="script.js"></script>
+</body>
+</html>
